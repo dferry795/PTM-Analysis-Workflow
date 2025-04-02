@@ -1,6 +1,5 @@
 # PTM-Analysis-Workflow
-April 2025
-Created by Darian Ferry, Eric Upton-Rowley, Tessa Bass, and Hailey (Johnson) Zimmerman.
+Created by Darian Ferry, Eric Upton-Rowley, Tessa Bass, and Hailey (Johnson) Zimmerman, April 2025.
 
 Mentored by Dr. Josh Anderson
 
