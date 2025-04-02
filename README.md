@@ -9,7 +9,9 @@ This project is a collaboration with the Huntsman Cancer Institute.
 Below are detailed steps for reproducibility.* 
 
 ## First: downloading data
-We took raw data from two websites, the TCGA from the National Cancer Institute (https://portal.gdc.cancer.gov/) as well as PTM the PTM_Disrupting_Mutations.csv and TCGA datasets, which are found in the data folder of this repository. 
+We took raw data from two websites, TCGA data from the National Cancer Institute (https://portal.gdc.cancer.gov/) as well as PTM disrupting mutational data (https://ptmd.biocuckoo.cn/download.php).
+
+The TCGA data shows the most frequent mutations across all cancer types. This data is called 
 
 ## Second: Inner join TCGA and PTM Disrupting data in R
 
