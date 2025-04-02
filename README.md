@@ -5,3 +5,11 @@
 
 ## First: downloading data
 We took raw data from the PTM_Disrupting_Mutations.csv and TCGA datasets, which are found in the data folder of this repository. 
+
+## Second: Inner join TCGA and PTM Disrupting data in R
+
+## Third: Plot Mutation Frequency
+
+## Fourth: Plotting IDR along with mutations
+
+## Fifth: Using Chimera to plot 3-dimensionality
