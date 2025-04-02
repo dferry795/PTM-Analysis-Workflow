@@ -1,9 +1,11 @@
 # PTM-Analysis-Workflow
 April 2025
 Created by Darian Ferry, Eric Upton-Rowley, Tessa Bass, and Hailey (Johnson) Zimmerman.
+Mentored by Dr. Josh Anderson
 
 ## Introduction
 *This is the workflow for our 2025 Senior Bioinformatics Capstone project at Brigham Young University. 
+This project is a collabortation with the Huntsman Cancer Institute.
 Below are detailed steps for reproducibility.* 
 
 ## First: downloading data
