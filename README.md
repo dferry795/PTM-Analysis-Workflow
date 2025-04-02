@@ -5,7 +5,7 @@ Mentored by Dr. Josh Anderson
 
 ## Introduction
 *This is the workflow for our 2025 Senior Bioinformatics Capstone project at Brigham Young University. 
-This project is a collabortation with the Huntsman Cancer Institute.
+This project is a collaboration with the Huntsman Cancer Institute.
 Below are detailed steps for reproducibility.* 
 
 ## First: downloading data
