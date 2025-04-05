@@ -15,6 +15,8 @@ The TCGA data shows the most frequent mutations across all cancer types. This da
 
 The PTM disrupting data shows all mutations which disrupt a PTM across the genome. This data is called ***PTM_Disrupting_Mutations.csv*** and is located in the data/ directory of this github.
 
+Lastly, make sure to download the **idmap.xlsx** in the data/ directory. This is an ID conversion between the uniprot IDs in the TCGA data and the regular gene name in the PTMD database. This file will help us merge these two files together.
+
 Feel free to download these two data files directly from this github in the data/ directory to begin.
 
 ## Second: Inner join TCGA and PTM Disrupting data in R
