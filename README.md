@@ -72,7 +72,8 @@ The output file of filter_IDR_by_PS.py is in data/ directory as ***MutFreq_in_ID
 ## Fourth: Plotting IDR along with mutations
 
 ## Fifth: Using Chimera to plot 3-dimensionality
-EDIT AND EXPAND ON:
+**EDIT AND FINISH THIS SECTION:**
+
 download chimera (and how to)
 
 search up gene in uniprot, click "sequence" on the left side and then hit copy sequence
