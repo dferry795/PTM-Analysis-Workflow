@@ -72,3 +72,19 @@ The output file of filter_IDR_by_PS.py is in data/ directory as ***MutFreq_in_ID
 ## Fourth: Plotting IDR along with mutations
 
 ## Fifth: Using Chimera to plot 3-dimensionality
+download chimera (and how to)
+
+search up gene in uniprot, click "sequence" on the left side and then hit copy sequence
+
+log into alphafold server, paste sequence in job, wait for job to load
+
+hit three dots on right of job, download it
+
+go into chimera, open the "model_0.cif" file from your alphafold job download
+
+change background to white in chimera 
+
+some different commands to help you asses 3d space:
+_color bfactorpalette alphafold_
+_show /a:100_ (whatever position you want to look at)
+_distance /a:100 /a:105_ (whichever distance you want to look at)
