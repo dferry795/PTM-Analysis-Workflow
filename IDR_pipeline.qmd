@@ -1,0 +1,205 @@
+---
+title: "IDR_pipeline"
+format: html
+editor: visual
+---
+
+```{r}
+# add dependencies
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+library(httr)
+library(httr2)
+library(rlang)
+library(glue)
+```
+
+## Accessing AIUPred API for Disorder Predictions
+
+```{r}
+### REPLACE VALUES BELOW WITH UNIPROT IDS ###
+UniProt_IDs = c('P01116', 'Q07864', 'O75533', 'P35222', 'Q5M775') 
+```
+
+```{r}
+# initialize dataframe
+predictions <- tibble(
+  UniProt = character(),
+  AIUPred = list()
+)
+
+# get disorder predictions for each gene from AIUPred
+for (id in UniProt_IDs) {
+  data <- list(accession = tolower(id), smoothing = "default", analysis_type = "binding")
+  url <- "https://aiupred.elte.hu/rest_api"
+  
+  response <- GET(url, query = data)
+  content <- content(response, as = "text", encoding = "UTF-8")
+  parsed_data <- fromJSON(content)
+  print(parsed_data$AIUPred)
+  
+  predictions <- predictions %>%
+    add_row(UniProt = parsed_data$accession, AIUPred = list(parsed_data$AIUPred))
+}
+
+head(predictions)
+```
+
+## Accessing UniProt API for Gene Names
+
+```{r}
+# get gene names for proteins of interest
+gene_names = c()
+
+for (id in UniProt_IDs) {
+  
+  base_url <- glue("https://rest.uniprot.org/uniprotkb/{toupper(id)}")
+  params <- list(
+    fields = "gene_names"
+  )
+  
+  req <- request(base_url)
+  req |> req_headers(
+    accept = "application/json"
+  )
+  req |> req_url_query(!!!params)
+  resp <- req_perform(req)
+  
+  if (resp_status(resp) != 200) {
+    stop(sprintf("Error %d: %s", resp_status(resp), resp_body_string(resp)))
+  }
+  
+  data <- resp_body_json(resp)
+  print(data$genes[[1]]$geneName$value)
+  gene_names <- c(gene_names, data$genes[[1]]$geneName$value)
+}
+print(gene_names)
+```
+
+```{r}
+# add gene names to dataframe
+predictions <- predictions %>%
+  mutate(Gene = gene_names)
+head(predictions)
+```
+
+## Prepare Data for Graphing
+
+```{r}
+# reformat dataframe
+final_df <- data.frame()
+
+for (id in unique(predictions$UniProt)) {  
+  filtered_df <- predictions %>%
+    filter(UniProt == id) %>%
+    unnest(AIUPred) %>%
+    mutate(Position = row_number()) %>%
+    mutate(Disordered = AIUPred > 0.5)
+
+  final_df <- bind_rows(final_df, filtered_df)
+}
+
+print(head(final_df))
+```
+
+## Plot Disorder Predictions
+
+#### Disorder predictions for all genes in dataframe
+
+##### This example plots the disorder predictions for PTEN, CTNNB1, and TP53.
+
+```{r}
+
+# The graphs are not displayed, but they will show up in your Downloads
+
+for (gene in gene_names) {
+  
+  # filter dataframe
+  gene_df <- final_df %>%
+    filter(Gene == gene)
+  
+  # plot figure
+  ggplot(gene_df, aes(x = Position, y = AIUPred)) +
+    geom_line(color = "darkblue", size = 0.5) +
+    labs(
+      title = glue("{gene} Disorder Prediction"),
+      x = "Amino Acid Position", y = "AIUPred Disorder Prediction"
+    ) +
+    theme_minimal()
+  
+  # download the graph
+  ggsave(glue("{gene}_Disorder_Prediction.png"))
+  print("Successfully downloaded " + glue("{gene}_Disorder_Prediction.png"))
+}
+```
+
+#### Disorder prediction for an entire protein
+
+##### This example plots the disorder prediction for PTEN.
+
+```{r}
+### REPLACE WITH GENE NAME ###
+gene_to_graph <- 'KRAS'
+
+# filter dataframe
+gene_df <- final_df %>%
+  filter(Gene == gene_to_graph)
+
+# plot figure
+ggplot(gene_df, aes(x = Position, y = AIUPred)) +
+  geom_line(color = "darkblue", size = 0.5) +
+  ylim(0, 1.0) +
+  labs(
+    title = glue("{gene_to_graph} Disorder Prediction"),
+    x = "Amino Acid Position", y = "AIUPred Disorder Prediction"
+  ) +
+  theme_minimal()
+
+# download the graph
+ggsave(glue("{gene_to_graph}_Disorder_Prediction.png"))
+print("Successfully downloaded " + glue("{gene_to_graph}_Disorder_Prediction.png"))
+```
+
+#### Disorder prediction for a specified subset of a protein. Specified PTM sites can also be included.
+
+##### This example plots the disorder prediction for PTEN between amino acids 100 and 350 with PTM sites 125, 229, 266, 321, and 336.
+
+```{r}
+### REPLACE WITH GENE NAME ###
+gene_to_graph <- 'KRAS'
+
+### REPLACE WITH PTM POSITIONS OF INTEREST ###
+PTM_positions <- c(32, 64)
+
+### REPLACE WITH AMINO ACID RANGE TO ZOOM IN ON ###
+coordinates_of_figure <- c(0, 75)
+
+# filter dataframe
+gene_df <- final_df %>%
+  filter(Gene == gene_to_graph)
+
+# plot figure
+ggplot(gene_df, aes(x = Position, y = AIUPred)) +
+  geom_line(color = "darkblue", size = 0.5) +
+  ylim(0, 1.0) +
+  labs(
+    title = glue("{gene_to_graph} Disorder Prediction"),
+    x = "Amino Acid Position", y = "AIUPred Disorder Prediction"
+  ) +
+  theme_minimal() +
+
+  # zoom in on specific areas of the protein
+  coord_cartesian(xlim = coordinates_of_figure) +
+
+  # plot PTM sites
+  geom_vline(xintercept = PTM_positions, linetype = "dashed", color = "red", size = 0.5) +
+  annotate("text", x = PTM_positions[1],
+           y = 0.8,
+           label = "PTM Site", color = "red", angle = 90, vjust = -1, hjust = 1, size = 3)
+
+# download the graph
+ggsave(glue("{gene_to_graph}_Disorder_Prediction_Zoom.png"))
+print("Successfully downloaded " + glue("{gene_to_graph}_Disorder_Prediction_Zoom.png"))
+```
