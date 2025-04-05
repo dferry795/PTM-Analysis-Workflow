@@ -18,6 +18,7 @@ The PTM disrupting data shows all mutations which disrupt a PTM across the genom
 Feel free to download these two data files directly from this github in the data/ directory to begin.
 
 ## Second: Inner join TCGA and PTM Disrupting data in R
+Next, in R, we want to join these two dataframes so we can analyze the most frequent mutations (according to TCGA) which are also PTM disrupting (according to PTMD).
 
 ## Third: Filter PTM Disrupting data by IDR and PS
 We filtered the joined data, keeping only PTMs found within Intrinsically Disordered Regions (IDRs) and Phase Separation (PS) regions.
