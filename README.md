@@ -27,13 +27,13 @@ We downloaded the 2024_12 release, all datasets, all aspects, including ambiguou
 The data type was regions, and was downloaded as a tsv file
 This file is in the data/ directory and is called ***DisProt_release_2024_12.tsv***
 
-Predicted IDRs were obtained in two ways:
+**Predicted IDRs were obtained in two ways:**  
 First, IDRs were predicted using RIDAO: https://ridao.app/
-We created a file with UniProt IDs using get_ids.py then split the file so no one file had more than 9,000 names.
+We created a file with UniProt IDs using get_ids.py then split the file so no one file had more than 9,000 names.  
 We submitted these files to https://www.uniprot.org/id-mapping to create FASTA files with protein sequeces for each ID, mapping IDs from UniProtKB AC/ID to UniProtKB.
 These mapping settings do not necessarily work for all IDs, but will work for most.
 We mapped any failed IDs individually.
-Download FASTA files by clicking "Download", select "Downlaod all", and choose FASTA format.
+Download FASTA files by clicking "Download", select "Downlaod all", and choose FASTA format.  
 The FASTA files created from https://www.uniprot.org/id-mapping were submitted as separate batches to https://ridao.app/
 RIDAO provides a file for each protein, which were consolidated into one directory.
 This directory is the data/protein_scores/ directory.
@@ -44,8 +44,8 @@ Second, as a faster option, we predicted IDRs using AIUPred (https://aiupred.elt
 To run filter_idr_api.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -v path/DisProt_release_2024_12.tsv".
 
 Both of these programs should run in 10-20 minutes.
-The output of each program is nearly identical.
-The output file of filter_idr_predicted.py is in data/ directory as ***MutFreq_in_IDR_pred.csv***
+The output of each program is nearly identical.  
+The output file of filter_idr_predicted.py is in data/ directory as ***MutFreq_in_IDR_pred.csv***  
 The output file of filter_idr_api.py is in data/ directory as ***MutFreq_in_IDR_api.csv***
 
 ## Fourth: Plot Mutation Frequency
