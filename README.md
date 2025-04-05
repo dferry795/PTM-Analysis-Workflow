@@ -22,6 +22,8 @@ Feel free to download these two data files directly from this github in the data
 ## Third: Filter PTM Disrupting data by IDR and PS
 We filtered the joined data, keeping only PTMs found within Intrinsically Disordered Regions (IDRs) and Phase Separation (PS) regions.
 
+All programs for this step are in the StepThreeScripts/ directory.
+
 Verified IDRs were obtained from DisProt: https://disprot.org/download
 We downloaded the 2024_12 release, all datasets, all aspects, including ambiguous
 The data type was regions, and was downloaded as a tsv file
