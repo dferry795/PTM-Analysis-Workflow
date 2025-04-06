@@ -22,17 +22,17 @@ library(tidyverse)
 library(readxl)
 
 # EDIT HERE: Insert absolute path to files
-disruption = read_csv("~Path_to/PTM_Disrupting_Mutations.csv")
+disruption = read_csv("~Path to file/PTM_Disrupting_Mutations.csv")
 
 # EDIT HERE: Insert absolute path to files, and it selects the columns needed
-frequent_mutations = read_tsv("~Path_to/TCGA_Frequent_Mutations.tsv") %>% 
+frequent_mutations = read_tsv("~Path to file/TCGA_Frequent_Mutations.tsv") %>% 
   select(dna_change, protein_change, 
          num_cohort_ssm_affected_cases,
          num_cohort_ssm_cases,
          cohort_ssm_affected_cases_percentage)
 
 # EDIT HERE: Insert absolute path to Uniprot ID file
-ids = read_excel("~Path_to/idmap.xlsx") %>%
+ids = read_excel("~Path to file/idmap.xlsx") %>%
   rename(gene = symbol) %>%
   rename(UniProt = query) %>%
   select(UniProt, gene)
@@ -92,6 +92,12 @@ view(Joined_Data)
 ```
 
 The columns in this data frame show you what change was made to the DNA, what position the PTM is on, and what exact_position the mutation is on. Additionally, there is the percentage of frequency and where the data came from in the PTMD database.
+
+You will need to write this data frame to a file so that you can use it later for other plots in Step 4. Here is the command you can run to write it to a file for later.
+
+```{r}
+write_csv(Joined_Data, "Mutation_Freuency_Count.csv")
+```
 
 # [Part 2: Plotting the data]{.underline}
 

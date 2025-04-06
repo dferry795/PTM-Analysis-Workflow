@@ -1,0 +1,137 @@
+---
+title: "Plotting_IDRs_with_DisProt"
+format: html
+editor: visual
+---
+
+## Step 1: Load in Data & Packages
+
+In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with verified IDRs from DisProt. The first file is the output of running `StepTwoCode.qmd`. If you have not completed that module, you must do that first, because that data frame is the first input for this module. The other file you will need is the file called `DisProt_release_2024_12.tsv` which can be found and downloaded in the /data folder of this repository. Finally, replace `KRAS` with the name of the gene you would like to plot.
+
+```{r}
+# package dependencies
+library(tidyverse)
+library(ggplot2)
+library(glue)
+
+### INSERT PATH TO MUTATION_FREQUENCY_COUNT.CSV HERE ###
+### you should have gotten this data frame from running StepTwoCode.qmd ###
+Mutation_PTM_Frequency = read_csv("~Path to file/Mutation_Freuency_Count.csv")
+
+### INSERT PATH TO DISPROT VERIFIED IDRS FILE ###
+disorder_df = read_tsv('~Path to file/DisProt_release_2024_12.tsv')
+
+### REPLACE WITH GENE NAME TO PLOT ###
+gene_name = 'KRAS'
+
+Mutation_PTM_Frequency %>%
+  mutate(affected_cases_percentage = affected_cases_percentage / 100) -> Mutation_PTM_Frequency
+
+head(Mutation_PTM_Frequency)
+```
+
+## Step 2: Cleaning Data
+
+This cell will get the PTM-disrupting mutation frequency data for your gene.
+
+```{r}
+mutation_freq <- Mutation_PTM_Frequency %>%
+  filter(gene == gene_name)
+
+head(mutation_freq)
+```
+
+This cell will get the verified disordered regions for your gene.
+
+For many genes, there are no verified IDRs recorded in DisProt. If this is the case for your gene, you will see a prompt instead of a data frame. This message prompts you to use one of the AIUPred pipelines instead of this DisProt pipeline, because DisProt does not have data for the gene you would like to look at.
+
+```{r}
+gene_disorder <- disorder_df %>%
+  filter(acc == mutation_freq$'UniProt'[1])
+
+if (length(gene_disorder) == 0) {
+  print(glue('There is no DisProt data for {gene_name}. We advise you to use one of the predictive AIUPred pipelines instead of this one.'))
+} else {
+  head(gene_disorder)
+}
+```
+
+This cell creates a vector of whether each mutation is within a verified IDR or not, and adds this column to the mutation data frame.
+
+```{r}
+mutations <- pull(mutation_freq, 'exact_position')
+
+is_disordered <- sapply(mutations, function(pos) {
+  any(pos >= gene_disorder$start & pos <= gene_disorder$end)
+})
+
+mutation_freq <- mutation_freq %>%
+  mutate(Disordered = is_disordered)
+head(mutation_freq)
+```
+
+## Step 3: Plotting Cancer-Associated, PTM-Disrupting Mutations Alongside IDRs
+
+This first figure plots the frequencies of PTM-disrupting mutations with disordered regions colored in red and ordered regions colored in blue.
+
+**Make sure to specify what range of amino acids (x-axis) and what range of frequency (y-axis) you would like to look at.**
+
+```{r}
+### THIS IS A PLOT OF PTM-DISRUPTING MUTATION FREQUENCY, COLORED BY DISORDER DATA FROM DISPROT ###
+
+### REPLACE WITH SPECIFIC X and Y-AXIS RANGES TO ZOOM IN ON ###
+amino_acid_range = c(0, 80)
+mutation_frequency_range = c(0, 0.006)
+
+
+
+# Plot mutation versus frequency
+ggplot(mutation_freq, aes(x = exact_position, 
+                          y = affected_cases_percentage, 
+                          fill = Disordered)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("FALSE" = "steelblue", "TRUE" = "tomato")) +
+  labs(
+    title = glue("{gene_name} Mutation Frequency by Position"),
+    x = "Mutation Position",
+    y = "Frequency of Mutation", 
+    fill = "Within an IDR"
+  ) +
+  theme_bw() +  
+  coord_cartesian(xlim = amino_acid_range, ylim = mutation_frequency_range)
+```
+
+This second figure is identical to the former, except you may plot specific PTM sites that you would like displayed in the plot.
+
+**Again, make sure to specify what range of amino acids (x-axis) and what range of frequency (y-axis) you would like to look at AND which PTM sites to display.**
+
+```{r}
+### THIS IS THE SAME PLOT, BUT YOU CAN SELECT SPECIFIC PTM SITES TO SHOW ###
+
+### REPLACE WITH SPECIFIC PTM-SITES TO DISPLAY ###
+ptm_sites = c(32, 64)
+
+### REPLACE WITH SPECIFIC X and Y-AXIS RANGES TO ZOOM IN ON ###
+amino_acid_range = c(0, 80)
+mutation_frequency_range = c(0, 0.006)
+
+
+
+# Plot mutation versus frequency
+ggplot(mutation_freq, aes(x = exact_position, 
+                          y = affected_cases_percentage, 
+                          fill = Disordered)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("FALSE" = "steelblue", "TRUE" = "tomato")) +
+  labs(
+    title = glue("{gene_name} Mutation Frequency by Position"),
+    x = "Mutation Position",
+    y = "Frequency of Mutation", 
+    fill = "Within an IDR"
+  ) +
+  theme_bw() +
+  coord_cartesian(xlim = amino_acid_range, ylim = mutation_frequency_range) +
+  geom_vline(xintercept = ptm_sites, linetype = "dashed", color = "black", size = 0.5) +
+  annotate("text", x = ptm_sites, y = max(mutation_freq$affected_cases_percentage) * 0.9,
+  label = "PTM Site", color = "black", angle = 90, vjust = -0.5, hjust = 1, size = 3)
+```
