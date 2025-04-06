@@ -1,5 +1,5 @@
 # PTM-Analysis-Workflow
-Created by Darian Ferry, Eric Upton-Rowley, Tessa Bass, and Hailey (Johnson) Zimmerman, April 2025.
+Created by Darian Ferry, Eric Upton-Rowley, Tessa (Bass) Tolson, and Hailey (Johnson) Zimmerman, April 2025.
 
 Mentored by Dr. Josh Anderson
 
@@ -69,7 +69,9 @@ To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separa
 The output file of filter_IDR_by_PS.py is in data/ directory as ***MutFreq_in_IDR_and_PS.csv***
 
 
-## Fourth: Plotting IDR along with mutations
+## Fourth: Plotting IDRs along with mutations
+
+Two main sources were used for plotting the disorder of proteins: DisProt (verified IDRs) and AIUPred (predicted IDRs and the confidence of the prediction). If the verified regions and predicted regions contradicted each other, we prioritized the verified data. One example of this is KRAS. AIUPred predicts no IDRs in KRAS; however, there are verified IDRs in KRAS from DisProt. We prioritized DisProt data because the data are verified. 
 
 ## Fifth: Using Chimera to plot 3-dimensionality
 **EDIT AND FINISH THIS SECTION:**
