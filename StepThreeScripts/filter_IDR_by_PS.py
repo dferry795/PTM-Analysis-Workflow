@@ -50,8 +50,8 @@ with open(disorderFile, "r", encoding="utf-8") as data, open(output, "w", encodi
             first = False
             continue
         col = line.split(",")
-        if col[0] in names:
-            for bounds in names[col[0]]:
-                if int(bounds[0]) <= int(col[1]) <= int(bounds[1]):
+        if col[2] in names:
+            for bounds in names[col[2]]:
+                if int(bounds[0]) <= int(col[3]) <= int(bounds[1]):
                     out.write(f"\n{lin}")
                     break
