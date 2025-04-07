@@ -34,7 +34,8 @@ All programs for this step are in the StepThreeScripts/ directory.
 Verified IDRs were obtained from DisProt: https://disprot.org/download
 We downloaded the 2024_12 release, all datasets, all aspects, including ambiguous
 The data type was regions, and was downloaded as a tsv file
-This file is in the data/ directory and is called ***DisProt_release_2024_12.tsv***
+This file is in the data/ directory and is called ***DisProt_release_2024_12.tsv***  
+The IDR scripts also use the output of Step 2, which can be found as ***output/Mutation_Frequency_Count.csv***
 
 **Two Options for predicting IDR:**  
 **Option 1:** IDRs can be predicted using RIDAO: https://ridao.app/  
@@ -48,10 +49,12 @@ The FASTA files created from https://www.uniprot.org/id-mapping were submitted a
 RIDAO provides a file for each protein, which were consolidated into one directory.
 This directory is the data/protein_scores/ directory.
 Filtration can be done using these scores with the ***filter_idr_predicted.py*** program.
-To run filter_idr_predicted.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -p path/predicted_scores/ -v path/DisProt_release_2024_12.tsv".
+To run filter_idr_predicted.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -p path/predicted_scores/ -v path/DisProt_release_2024_12.tsv".  
+The output of filter_idr_predicted.py can be found in ***output/MutFreq_in_IDR_pred.csv***
 
 **Option 2:** as a faster option, IDRs can be predicted using AIUPred (https://aiupred.elte.hu/) as an API integrated into the program ***filter_idr_api.py***  
-To run filter_idr_api.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -v path/DisProt_release_2024_12.tsv".
+To run filter_idr_api.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -v path/DisProt_release_2024_12.tsv".  
+The output of filter_idr_api.py can be found in ***output/MutFreq_in_IDR_api.csv***
 
 Both of these programs should run in 10-20 minutes.
 The output of each program is nearly identical, with a few sites included only in one or the other.
@@ -65,7 +68,8 @@ Once IDs are mapped to protein sequences, the FASTA file(s) are submitted to Par
 ParSe output is downloaded by scrolling to the bottom of the results page and downloading the ***Predicted PS IDRs FASTA***.
 
 The IDR-filtered file can be filtered for PTMs also in PS using the program ***filter_IDR_by_PS.py***  
-To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separation.file -d path/MutFreq_in_IDR.file" and optional argument "-o path/output.file".
+To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separation.file -d path/MutFreq_in_IDR.file" and optional argument "-o path/output.file".  
+The output of filter_IDR_by_PS.py can be found in ***output/MutFreq_in_IDR_and_PS.csv***
 
 
 ## Fourth: Plotting IDRs and Cancer-Associated, PTM-Disrupting Mutation Frequency
