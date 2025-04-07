@@ -22,7 +22,7 @@ Feel free to download these two data files directly from this github in the data
 ## Second: Inner join TCGA and PTM Disrupting data in R
 Next, in R, we want to join these two dataframes so we can analyze the most frequent mutations (according to TCGA) which are also PTM disrupting (according to PTMD).
 
-Go to the **StepTwoCode/** directory. Inside is a file called **Step2Code.qmd**. This is a quarto document written in R. Open this document in R or Rstudio to follow along. This script uses the three downloaded files from the first step to join the dataframes and also plots the PTM mutational frequency data. Inside you will find a step by step process and code chunks to run one at a time. Follow this code to see how we joined the dataframes and plotted mutational frequencies to decide our best candidate proteins.
+Go to the **StepTwoCode/** directory. Inside is a file called **Step2Code.qmd**. This is a quarto document written in R. Open this document in R or Rstudio to follow along (although RStudio has an easier GUI and is recommended). This script uses the three downloaded files from the first step to join the dataframes and also plots the PTM mutational frequency data. Inside you will find a step by step process and code chunks to run one at a time. Follow this code to see how we joined the dataframes and plotted mutational frequencies to decide our best candidate proteins.
 
 The joined PTM disrupting mutation frequency output of this step is in the **output/** directory. It is called **Mutation_Frequency_Count.csv**. This is the expected output dataframe from this step. Feel free to download this CSV if you want to skip step 2 and go onto step 3.
 
