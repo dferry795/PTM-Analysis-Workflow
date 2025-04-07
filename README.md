@@ -99,6 +99,8 @@ Next, go to https://alphafoldserver.com and sign in using your Google account. P
 
 Now open the ChimeraX software. In the Home tab, click the “Open” button under the File section and navigate to the folder containing the unzipped AlphaFold results. Select the file that ends in “model_0.cif” to load the predicted protein structure. For improved visualization, you can also change the background color by clicking the white square under the Background section of the Home tab.
 
+To label our PTM sites of interest, we selected the site using the “select /a: (PTM position)” command. We labeled the PTM site using the “label /a: (PTM site command)” command and colored it pink using the “” command. We also labeled frequent mutation sites of interest using the same label command and color it red using the “” command. We then labeled the distance between the mutation sites and the PTM sites by using the “” command.
+
 some different commands to help you asses 3d space:
 "_color bfactorpalette alphafold_"
 "_show /a:100_ (whatever position you want to look at)"
