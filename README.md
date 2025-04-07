@@ -75,7 +75,7 @@ Two main sources were used for plotting the disorder of proteins: DisProt (verif
 
 For this reason, we suggest starting Step 4 with the `Plotting_Mutations_and_IDRs_with_DisProt.qmd` file. Within this module, you will be able to see whether there is data in DisProt for the protein you are interested in.
 
-As for an overview of the code files in the `StepFourCode` directory in this repository, there are three `.qmd` files, each of which you can open in R or RStudio.
+As for an overview of the code files in the `/StepFourCode` directory in this repository, there are three `.qmd` files, each of which you can open in R or RStudio.
 Here are the three files:
 
 - `Plotting_IDRs_with_AIUPred.qmd`
