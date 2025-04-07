@@ -107,7 +107,7 @@ Now open the ChimeraX software. In the Home tab, click the “Open” button und
 
 To label our PTM sites of interest, we selected the site using the “select /a: (PTM position)” command. We labeled the PTM site using the “label /a: (PTM site command)” command and colored it pink using the “color /:a (PTM site) pink” command. We also labeled frequent mutation sites of interest using the same label command and color it red using the “color /:a (mutation site) red” command. We then labeled the distance between the mutation sites and the PTM sites by using the “distance /a:(PTM site)@(associated atom) /a:(mutation site)@(associated atom)” command.
 
-some different commands to help you asses 3d space:
-"_color bfactorpalette alphafold_"
-"_show /a:100_ (whatever position you want to look at)"
+some different commands to help you asses 3d space:  
+"_color bfactorpalette alphafold_"  
+"_show /a:100_ (whatever position you want to look at)"  
 "_distance /a:100@NZ /a:105@CB (whichever distance you want to look at)"
