@@ -23,7 +23,7 @@ with open(file, "r", encoding="utf-8") as data, open(output, "w", encoding="utf-
         if spot == 0:
             spot += 1
             continue
-        name = line.split(",")[0]
+        name = line.split(",")[2]
         if spot == 1:
             spot += 1
             out.write(name)
