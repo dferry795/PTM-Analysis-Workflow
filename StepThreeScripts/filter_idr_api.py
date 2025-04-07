@@ -56,20 +56,20 @@ with open(mutationFile, "r", encoding="utf-8") as data, open(outFile, "w", encod
             out.write(lin)
             continue
         col = lin.split(",")
-        f = f"{col[0]}.dat"
-        if col[0] in disprot:
-            for p in disprot[col[0]]:
-                if p[0] <= int(col[1]) <= p[1]:
+        f = f"{col[2]}.dat"
+        if col[2] in disprot:
+            for p in disprot[col[2]]:
+                if p[0] <= int(col[3]) <= p[1]:
                     out.write(f"\n{lin}")
                     break
-        elif col[0] in found:
-            for p in found[col[0]]:
-                if p[0] <= int(col[1]) <= p[1]:
+        elif col[2] in found:
+            for p in found[col[2]]:
+                if p[0] <= int(col[3]) <= p[1]:
                     out.write(f"\n{lin}")
         else:
-            par = {"accession": col[0], "smoothing": "default", "analysis_type": "redox"}
+            par = {"accession": col[2], "smoothing": "default", "analysis_type": "redox"}
             results = json.loads(requests.get(url, params=par).text)
-            found[col[0]] = results["regions"]
+            found[col[2]] = results["regions"]
             for bounds in results["regions"]:
                 if bounds[0] <= int(col[1]) <= bounds[1]:
                     out.write(f"\n{lin}")
