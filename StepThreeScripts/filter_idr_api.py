@@ -71,6 +71,6 @@ with open(mutationFile, "r", encoding="utf-8") as data, open(outFile, "w", encod
             results = json.loads(requests.get(url, params=par).text)
             found[col[2]] = results["regions"]
             for bounds in results["regions"]:
-                if bounds[0] <= int(col[1]) <= bounds[1]:
+                if bounds[0] <= int(col[3]) <= bounds[1]:
                     out.write(f"\n{lin}")
                     break
