@@ -19,6 +19,8 @@ Follow the instructions below to follow how we did our project.
 install.packages("readxl") # may need to install this one regardless
 
 library(tidyverse)
+library(dplyr)
+library(stringr)
 library(readxl)
 
 # EDIT HERE: Insert absolute path to files
@@ -68,6 +70,8 @@ disruption <- disruption %>%
 ```
 
 ## Lastly, Join the data frames together!
+
+*(You might get some warnings, but it's okay)*
 
 ```{r}
 Joined_Data = disruption %>%
