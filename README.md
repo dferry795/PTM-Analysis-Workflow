@@ -84,7 +84,7 @@ Here are the three files:
 
 Each of the files show disorder and allow you to select specific genes, PTM sites, and portions of the protein to zoom in on if you would like.
 
-The first file provides plots of the predicted disorder for genes that you select. This file uses no external data that you will need to download because it depends solely on data from APIs. 
+The first file provides plots of the predicted disorder for genes that you select. This file uses no external data that you will need to download because it depends solely on data from the UniProt (https://www.uniprot.org/api-documentation/uniprotkb) and AIUPred (https://aiupred.elte.hu/help) APIs. 
 
 The second file provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. This file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`.
 
