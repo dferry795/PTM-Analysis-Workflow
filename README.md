@@ -84,11 +84,11 @@ Here are the three files:
 
 Each of the files show disorder and allow you to select specific genes, PTM sites, and portions of the protein to zoom in on if you would like.
 
-The first file uses no external data that you will need to download because it depends solely on data from APIs. This file provides plots of the predicted disorder for genes that you select.
+The first file provides plots of the predicted disorder for genes that you select. This file uses no external data that you will need to download because it depends solely on data from APIs. 
 
-The second file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`. This file provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. 
+The second file provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. This file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`.
 
-The third file also depends on the `Mutation_Freuency_Count.csv`. See the directions for obtaining this file above in the description of the second file. It also depends on the `DisProt_release_2024_12.tsv`, which you can find in the `/data` folder. This file likewise provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **verified disordered regions**. We suggest trying out this file first to see if your protein of interest has any **verified** data in DisProt before resorting to AIUPred, as it is only a prediction.
+The third file likewise provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **verified disordered regions**. This file also depends on the `Mutation_Freuency_Count.csv`. See the directions for obtaining this file above in the description of the second file. It also depends on the `DisProt_release_2024_12.tsv`, which you can find in the `/data` folder of this repository. We suggest trying out this file first to see if your protein of interest has any **verified** data in DisProt before resorting to AIUPred, as AIUPred data only provide a prediction.
 
 Please be aware that when you run code that creates multiple plots at once that they will not appear in the `.qmd` notebook, but they will be in your Downloads folder for your viewing.
 
