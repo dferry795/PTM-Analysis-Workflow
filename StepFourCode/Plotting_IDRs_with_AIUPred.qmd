@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+## Step 1: Load Data and Packages
+
+You will not need any external data for this module because it only uses the UniProt and the AIUPred APIs. You will however need to know what the UniProt IDs are for each protein that you would like to plot and replace the IDs below. The IDs that are currently in the vector are several of the proteins we used in our analyses, so you may keep them there and run the pipeline if your purpose is proving reproducibility.
+
 ```{r}
 # add dependencies
 library(tidyverse)
@@ -14,14 +18,14 @@ library(httr)
 library(httr2)
 library(rlang)
 library(glue)
-```
 
-## Accessing AIUPred API for Disorder Predictions
-
-```{r}
 ### REPLACE VALUES BELOW WITH UNIPROT IDS ###
 UniProt_IDs = c('P01116', 'Q07864', 'O75533', 'P35222', 'Q5M775') 
 ```
+
+## Step 2: Accessing APIs 
+
+### Accessing AIUPred API for Disorder Predictions
 
 ```{r}
 # initialize dataframe
@@ -47,7 +51,7 @@ for (id in UniProt_IDs) {
 head(predictions)
 ```
 
-## Accessing UniProt API for Gene Names
+### Accessing UniProt API for Gene Names
 
 ```{r}
 # get gene names for proteins of interest
@@ -78,6 +82,8 @@ for (id in UniProt_IDs) {
 print(gene_names)
 ```
 
+Add to data frame.
+
 ```{r}
 # add gene names to dataframe
 predictions <- predictions %>%
@@ -85,7 +91,7 @@ predictions <- predictions %>%
 head(predictions)
 ```
 
-## Prepare Data for Graphing
+Prepare data for graphing.
 
 ```{r}
 # reformat dataframe
@@ -104,11 +110,11 @@ for (id in unique(predictions$UniProt)) {
 print(head(final_df))
 ```
 
-## Plot Disorder Predictions
+## Step 3: Plot Disorder Predictions
 
-#### Disorder predictions for all genes in dataframe
+This code plots the disorder predictions for each protein that you previously selected. This will plot the entire protein; you may use other code blocks further down to zoom in on certain portions of the proteins.
 
-##### This example plots the disorder predictions for PTEN, CTNNB1, and TP53.
+You will not be able to see the plots; however, they are downloaded and will be present in your Downloads folder if you would like to view them.
 
 ```{r}
 
@@ -127,7 +133,7 @@ for (gene in gene_names) {
       title = glue("{gene} Disorder Prediction"),
       x = "Amino Acid Position", y = "AIUPred Disorder Prediction"
     ) +
-    theme_minimal()
+    theme_bw()
   
   # download the graph
   ggsave(glue("{gene}_Disorder_Prediction.png"))
@@ -135,9 +141,9 @@ for (gene in gene_names) {
 }
 ```
 
-#### Disorder prediction for an entire protein
+This plots the same graphs as above except for a certain protein of your choice, and you can see the graph below within this notebook.
 
-##### This example plots the disorder prediction for PTEN.
+**Make sure to replace the gene name with one you would like to look at.**
 
 ```{r}
 ### REPLACE WITH GENE NAME ###
@@ -162,9 +168,9 @@ ggsave(glue("{gene_to_graph}_Disorder_Prediction.png"))
 print("Successfully downloaded " + glue("{gene_to_graph}_Disorder_Prediction.png"))
 ```
 
-#### Disorder prediction for a specified subset of a protein. Specified PTM sites can also be included.
+This plots similar graphs to the ones above.
 
-##### This example plots the disorder prediction for PTEN between amino acids 100 and 350 with PTM sites 125, 229, 266, 321, and 336.
+However, for this plot you must select a gene, select PTM positions, and a specific range of amino acids to zoom in on. These will all be displayed in the plot below.
 
 ```{r}
 ### REPLACE WITH GENE NAME ###

@@ -1,0 +1,207 @@
+---
+title: "Plotting_Mutations_and_IDRs_with_AIUPred"
+format: html
+editor: visual
+---
+
+## Step 1: Load in Data & Packages
+
+In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with predicted IDRs from AIUPred. The first file is the output of running `Step2Code.qmd`. If you have not completed that module, you must do that first, because that data frame is the first input for this module. If you have already completed that module, then start by replacing the file path with the path to the .csv file containing the data frame from the `Step2Code.qmd` module. Then, replace the gene names with the gene names that you would like to plot. The genes we have included in the example here are the genes that we included in some of our analyses.
+
+```{r}
+# package dependencies
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+library(httr)
+library(httr2)
+library(rlang)
+library(glue)
+
+# INSERT PATH TO MUTATION_FREQUENCY_COUNT.CSV HERE
+### you should have gotten this from running Step2Code.qmd ###
+Mutation_PTM_Frequency = read_csv("~Path to file/Mutation_Freuency_Count.csv")
+
+### REPLACE VALUES BELOW WITH UNIPROT IDS ###
+gene_names = c('KRAS', 'POLE', 'SF3B1', 'CTNNB1', 'SPECC1') 
+
+head(Mutation_PTM_Frequency)
+```
+
+## Step 2: Clean and Format the Data
+
+Retrieve UniProt IDs from data for calling API.
+
+```{r}
+UniProt_IDs <- c()
+
+for (gene in gene_names) {
+  mini_df <- Mutation_PTM_Frequency[Mutation_PTM_Frequency$gene == gene, ]
+  UniProt_IDs <- c(UniProt_IDs, mini_df$UniProt[1])
+}
+print(UniProt_IDs)
+```
+
+This cell transforms the percentage to frequency.
+
+```{r}
+Mutation_PTM_Frequency %>%
+  mutate(affected_cases_percentage = affected_cases_percentage / 100) -> Mutation_PTM_Frequency
+```
+
+Access AIUPred API to get disorder predictions for each gene.
+
+```{r}
+# initialize dataframe
+predictions <- tibble(
+  UniProt = character(),
+  AIUPred = list()
+)
+
+# get disorder predictions for each gene from AIUPred
+for (id in UniProt_IDs) {
+  data <- list(accession = tolower(id), smoothing = "default", analysis_type = "binding")
+  url <- "https://aiupred.elte.hu/rest_api"
+  
+  response <- GET(url, query = data)
+  content <- content(response, as = "text", encoding = "UTF-8")
+  parsed_data <- fromJSON(content)
+  print(parsed_data$AIUPred)
+  
+  predictions <- predictions %>%
+    add_row(UniProt = parsed_data$accession, AIUPred = list(parsed_data$AIUPred))
+}
+
+head(predictions)
+```
+
+Unnest the predictions and format into a data frame.
+
+```{r}
+df_expanded <- predictions %>%
+  unnest(AIUPred) %>%
+  group_by(UniProt) %>%
+  mutate(Position = row_number()) %>%
+  ungroup()
+head(df_expanded)
+```
+
+Classify ordered and disordered positions on the protein. The threshold for disordered is 0.5 and above. Otherwise, the position is considered ordered.
+
+```{r}
+df_expanded %>%
+  mutate(Disordered = AIUPred > 0.5) -> df_expanded
+head(df_expanded)
+```
+
+Join data frames.
+
+```{r}
+Mutation_PTM_Frequency <- Mutation_PTM_Frequency %>%
+  mutate(Position = exact_position)
+combined <- right_join(Mutation_PTM_Frequency, df_expanded, by = c("UniProt", "Position"))
+
+head(combined)
+```
+
+## Step 3: Plot Predicted Disorder with Cancer-Associated, PTM-Disrupting Mutations
+
+This code creates a plot for each of the proteins that you selected previously and downloads it to your computer.
+
+The figures plot the predicted disorder, confidence of the prediction, and the frequency of cancer-associated, PTM-disrupting mutations **on the whole protein for each protein previously selected**.
+
+The bars are the mutation frequencies by amino acid position. The bars are colored red (for within a disordered region) or blue (for within an ordered region). The line displays the confidence of the disorder prediction at each amino acid position on the protein.
+
+You will not be able to see the graphs here, but they have been downloaded and you can open them in your Downloads folder to view them.
+
+```{r}
+for (gene_to_plot in gene_names) {
+  
+  # Filter data for the chosen gene
+  filtered_data <- combined %>%
+    filter(gene == gene_to_plot) %>%
+    distinct(Position, .keep_all = TRUE)
+  
+  gene_df <- df_expanded %>%
+  filter(UniProt == filtered_data$UniProt[1])
+  
+  # Plot the data
+  ggplot(data = filtered_data) +
+  geom_bar(aes(x = Position, y = affected_cases_percentage, fill = Disordered), 
+           stat = "identity") + 
+  scale_fill_manual(values = c("TRUE" = "blue", "FALSE" = "red"), name = "Within an IDR") +  
+  geom_line(data = gene_df, aes(x = Position, y = AIUPred * max(filtered_data$affected_cases_percentage), 
+                color = "Prediction Confidence", group = 1), size = 0.25) +
+  scale_color_manual(values = c("Prediction Confidence" = "black"), name = "Disorder Prediction") +
+  scale_y_continuous(
+    name = "Frequency of Mutation",
+    sec.axis = sec_axis(~ . / max(filtered_data$affected_cases_percentage), 
+                        name = "AIUPred Disorder Score")
+  ) +
+  labs(
+    title = glue("{selected_gene} Mutation Frequency by Position"),
+    x = "Mutation Position"
+  ) + 
+  theme_bw()
+
+# Save the plot
+ggsave(glue("{gene_to_plot}_AIUPred_and_Mutation_Frequency.png"), width = 12, height = 6, units = "in")
+
+print(glue("{gene_to_plot}_AIUPred_and_Mutation_Frequency.png successfully downloaded"))
+
+}
+```
+
+This is a plot of the predicted disorder, confidence of the prediction, and the frequency of cancer-associated, PTM-disrupting mutations **on a subsection of the protein.**
+
+This is the same plot as above for a specific gene, except zoomed in on a particular range of amino acids and you are able to select PTM sites to have displayed.
+
+**Make sure to replace the selected gene, PTM sites of interest (separated by commas), and the range of amino acids to take a closer look at.**
+
+```{r}
+### REPLACE ONE OF THE GENES YOU SELECTED PREVIOUSLY THAT YOU WOULD LIKE TO TAKE A CLOSER LOOK AT ###
+selected_gene <- 'POLE'
+
+### REPLACE WITH SPECIFIC PTM-SITES TO DISPLAY ###
+ptm_sites = c(425)
+
+### REPLACE WITH A SPECIFIC X-AXIS RANGE OF AMINO ACIDS TO ZOOM IN ON ###
+amino_acid_range = c(200, 500)
+
+
+
+# Filter data for the chosen gene
+filtered_data <- combined %>%
+  filter(gene == selected_gene) %>%
+  distinct(Position, .keep_all = TRUE)
+gene_df <- df_expanded %>%
+  filter(UniProt == filtered_data$UniProt[1])
+
+# Plot data
+ggplot(data = filtered_data) +
+  geom_bar(aes(x = Position, y = affected_cases_percentage, fill = Disordered), 
+           stat = "identity") + 
+  scale_fill_manual(values = c("TRUE" = "blue", "FALSE" = "red"), name = "Disordered Region") +  
+  geom_line(data = gene_df, aes(x = Position, y = AIUPred * max(filtered_data$affected_cases_percentage), 
+                color = "Prediction Confidence", group = 1), size = 0.25) +
+  scale_color_manual(values = c("Prediction Confidence" = "black"), name = "Disorder Prediction") +
+  scale_y_continuous(
+    name = "Frequency of Mutation",
+    sec.axis = sec_axis(~ . / max(filtered_data$affected_cases_percentage), 
+                        name = "AIUPred Disorder Score")
+  ) +
+  labs(
+    title = glue("{selected_gene} Mutation Frequency by Position"),
+    x = "Mutation Position"
+  ) + 
+  theme_bw() +
+  coord_cartesian(xlim = amino_acid_range) +
+  geom_vline(xintercept = ptm_sites, linetype = "dashed", color = "black", size = 0.25) +
+  annotate("text", x = ptm_sites,
+           y = max(filtered_data$affected_cases_percentage) * 0.8,
+           label = "PTM Site", color = "black", angle = 90, vjust = -1, hjust = 1, size = 2.5)
+
+# Save the plot
+ggsave("plot.png", width = 12, height = 6, units = "in")
+```
