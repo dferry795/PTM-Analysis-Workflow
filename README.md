@@ -93,7 +93,7 @@ Please be aware that when you run code that creates multiple plots at once that 
 
 ## Fifth: Using Chimera to plot 3-dimensionality
 
-To finish the workflow, we use UCSF ChimeraX for visual analysis. To begin, download the ChimeraX software by visiting https://www.cgl.ucsf.edu/chimerax/download.html and installing the software via the .dmg file you obtain from this site.
+To finish the workflow, we use UCSF ChimeraX for visual analysis. To begin, download the ChimeraX software by visiting https://www.cgl.ucsf.edu/chimerax/download.html, clicking the option that works best with your operating system, and installing the software via the .dmg file you obtain from this site.
 
 Before launching ChimeraX, go to the UniProt website at https://www.uniprot.org and search for your gene of interest. From the list of results, click on the entry that matches your target. On the left-hand menu, select “Sequence & Isoforms,” then click the “Copy sequence” button located above the amino acid sequence box.
 
