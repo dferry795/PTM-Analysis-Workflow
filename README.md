@@ -71,7 +71,7 @@ The output file of filter_IDR_by_PS.py is in data/ directory as ***MutFreq_in_ID
 
 ## Fourth: Plotting IDRs along with mutations
 
-Two main sources were used for plotting the disorder of proteins: DisProt (verified IDRs) and AIUPred (predicted IDRs and the confidence of the prediction). If the verified regions and predicted regions contradicted each other, we prioritized the verified data. One example of this is KRAS. AIUPred predicts no IDRs in KRAS; however, there are verified IDRs in KRAS from DisProt. We prioritized DisProt data because the data are verified. 
+Two main sources were used for plotting the disorder of proteins: DisProt (verified IDRs, https://disprot.org/download) and AIUPred (predicted IDRs and the confidence of the prediction, https://aiupred.elte.hu/). If the verified regions and predicted regions contradicted each other, we prioritized the verified data. One example of this is KRAS. AIUPred predicts no IDRs in KRAS; however, there are verified IDRs in KRAS from DisProt. We prioritized DisProt data because the data are verified. 
 
 For this reason, we suggest starting Step 4 with the `Plotting_Mutations_and_IDRs_with_DisProt.qmd` file. Within this module, you will be able to see whether there is data in DisProt for the protein you are interested in.
 
