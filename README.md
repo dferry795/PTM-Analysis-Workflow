@@ -69,7 +69,7 @@ To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separa
 The output file of filter_IDR_by_PS.py is in data/ directory as ***MutFreq_in_IDR_and_PS.csv***
 
 
-## Fourth: Plotting IDRs along with mutations
+## Fourth: Plotting IDRs and Cancer-Associated, PTM-Disrupting Mutation Frequency
 
 Two main sources were used for plotting the disorder of proteins: DisProt (verified IDRs, https://disprot.org/download) and AIUPred (predicted IDRs and the confidence of the prediction, https://aiupred.elte.hu/). If the verified regions and predicted regions contradicted each other, we prioritized the verified data. One example of this is KRAS. AIUPred predicts no IDRs in KRAS; however, there are verified IDRs in KRAS from DisProt. We prioritized DisProt data because the data are verified. 
 
@@ -84,11 +84,11 @@ Here are the three files:
 
 Each of the files show disorder and allow you to select specific genes, PTM sites, and portions of the protein to zoom in on if you would like.
 
-The first file provides plots of the predicted disorder for genes that you select. This file uses no external data that you will need to download because it depends solely on data from the UniProt (https://www.uniprot.org/api-documentation/uniprotkb) and AIUPred (https://aiupred.elte.hu/help) APIs. However, you will need to have the UniProt IDs for each gene that you would like to plot. You can find the UniProt ID for a gene/protein by looking it up in the search bar of UniProtKB (https://www.uniprot.org/) and selecting the correct gene/protein (human of course). For example, P01116 is the UniProt ID for KRAS.
+The first file provides plots of **only** the predicted disorder for genes that you select (not the mutation frequency). This file uses no external data that you will need to download because it depends solely on data from the UniProt (https://www.uniprot.org/api-documentation/uniprotkb) and AIUPred (https://aiupred.elte.hu/help) APIs. However, you will need to have the UniProt IDs for each gene that you would like to plot. You can find the UniProt ID for a gene/protein by looking it up in the search bar of UniProtKB (https://www.uniprot.org/) and selecting the correct gene/protein (human of course). For example, P01116 is the UniProt ID for KRAS.
 
-The second file provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. This file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`.
+The second file provides plots of the frequency of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. This file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`.
 
-The third file likewise provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **verified disordered regions**. This file also depends on the `Mutation_Freuency_Count.csv`. See the directions for obtaining this file above in the description of the second file. It also depends on the `DisProt_release_2024_12.tsv`, which you can find in the `/data` folder of this repository. We suggest trying out this file first to see if your protein of interest has any **verified** data in DisProt before resorting to AIUPred, as AIUPred data only provide a prediction.
+The third file likewise provides plots of the frequency of cancer-associated, PTM-disrupting mutations and whether they are within **verified disordered regions**. This file also depends on the `Mutation_Freuency_Count.csv`. See the directions for obtaining this file above in the description of the second file. It also depends on the `DisProt_release_2024_12.tsv`, which you can find in the `/data` folder of this repository. We suggest trying out this file first to see if your protein of interest has any **verified** data in DisProt before resorting to AIUPred, as AIUPred data only provide a prediction.
 
 Please be aware that when you run code that creates multiple plots at once that they will not appear in the `.qmd` notebook, but they will be in your Downloads folder for your viewing.
 
