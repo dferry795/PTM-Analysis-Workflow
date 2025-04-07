@@ -80,17 +80,17 @@ with open(mutationFile, "r", encoding="utf-8") as data, open(outFile, "w", encod
             out.write(lin)
             continue
         col = lin.split(",")
-        f = f"{col[0]}.dat"
-        if col[0] in disprot:
-            for p in disprot[col[0]]:
-                if p[0] <= int(col[1]) <= p[1]:
+        f = f"{col[2]}.dat"
+        if col[2] in disprot:
+            for p in disprot[col[2]]:
+                if p[0] <= int(col[3]) <= p[1]:
                     out.write(f"\n{lin}")
                     break
         elif f in proteinFiles:
-            if find_score(f, int(col[1])) >= 0.5:
+            if find_score(f, int(col[3])) >= 0.5:
                 out.write(f"\n{lin}")
         else:
-            notFound.add(col[0])
+            notFound.add(col[2])
 
 print("Unable to find:")
 print_set(notFound)
