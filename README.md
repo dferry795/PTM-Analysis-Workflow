@@ -93,19 +93,14 @@ The third file likewise provides plots of the frequency of cancer-associated, PT
 Please be aware that when you run code that creates multiple plots at once that they will not appear in the `.qmd` notebook, but they will be in your Downloads folder for your viewing.
 
 ## Fifth: Using Chimera to plot 3-dimensionality
-**EDIT AND FINISH THIS SECTION:**
 
-download chimera (and how to)
+To finish the workflow, we use UCSF ChimeraX for visual analysis. To begin, download the ChimeraX software by visiting https://www.cgl.ucsf.edu/chimerax/download.html and installing the software via the .dmg file you obtain from this site.
 
-search up gene in uniprot, click "sequence" on the left side and then hit copy sequence
+Before launching ChimeraX, go to the UniProt website at https://www.uniprot.org and search for your gene of interest. From the list of results, click on the entry that matches your target. On the left-hand menu, select “Sequence & Isoforms,” then click the “Copy sequence” button located above the amino acid sequence box.
 
-log into alphafold server, paste sequence in job, wait for job to load
+Next, go to https://alphafoldserver.com and sign in using your Google account. Paste the copied sequence into the appropriate input box, save the job, and click “Continue and Preview Job.” When the job is complete, click the three dots to the right of the job and download the results. After downloading, unzip the file.
 
-hit three dots on right of job, download it
-
-go into chimera, open the "model_0.cif" file from your alphafold job download
-
-change background to white in chimera 
+Now open the ChimeraX software. In the Home tab, click the “Open” button under the File section and navigate to the folder containing the unzipped AlphaFold results. Select the file that ends in “model_0.cif” to load the predicted protein structure. For improved visualization, you can also change the background color by clicking the white square under the Background section of the Home tab.
 
 some different commands to help you asses 3d space:
 _color bfactorpalette alphafold_
