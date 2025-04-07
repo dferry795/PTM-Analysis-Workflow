@@ -82,6 +82,8 @@ Here are the three files:
 - `Plotting_Mutations_and_IDRs_with_AIUPred.qmd`
 - `Plotting_Mutations_and_IDRs_with_DisProt.qmd`
 
+Each of the files show disorder and allow you to select specific genes, PTM sites, and portions of the protein to zoom in on if you would like.
+
 The first file uses no external data that you will need to download because it depends solely on data from APIs. This file provides plots of the predicted disorder for genes that you select.
 
 The second file depends on the file `Mutation_Freuency_Count.csv`, that you will not find in the data directory. This is because the file is produced as a result of running `Step2Code.qmd` and obtaining the resulting data frame. The code to obtain a `.csv` file containing the resulting data frame is available within `Step2Code.qmd`. This file provides plots of cancer-associated, PTM-disrupting mutations and whether they are within **predicted disordered regions**. 
