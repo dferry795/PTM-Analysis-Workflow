@@ -23,7 +23,7 @@ library(glue)
 UniProt_IDs = c('P01116', 'Q07864', 'O75533', 'P35222', 'Q5M775') 
 ```
 
-## Step 2: Accessing APIs 
+## Step 2: Accessing APIs
 
 ### Accessing AIUPred API for Disorder Predictions
 
@@ -114,11 +114,11 @@ print(head(final_df))
 
 This code plots the disorder predictions for each protein that you previously selected. This will plot the entire protein; you may use other code blocks further down to zoom in on certain portions of the proteins.
 
-You will not be able to see the plots; however, they are downloaded and will be present in your Downloads folder if you would like to view them.
+You will not be able to see the graphs here, but they have been downloaded and they should be available for viewing either in your Downloads folder or your working directory.
 
 ```{r}
 
-# The graphs are not displayed, but they will show up in your Downloads
+# The graphs are not displayed, but they will show up in your Downloads folder or your working directory
 
 for (gene in gene_names) {
   

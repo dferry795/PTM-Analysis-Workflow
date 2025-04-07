@@ -6,7 +6,7 @@ editor: visual
 
 ## Step 1: Load in Data & Packages
 
-In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with predicted IDRs from AIUPred. The first file is the output of running `Step2Code.qmd`. If you have not completed that module, you must do that first, because that data frame is the first input for this module. If you have already completed that module, then start by replacing the file path with the path to the .csv file containing the data frame from the `Step2Code.qmd` module. Then, replace the gene names with the gene names that you would like to plot. The genes we have included in the example here are the genes that we included in some of our analyses.
+In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with predicted IDRs from AIUPred. The first file is called `Mutation_Freuency_Count.csv` and is the output of running `Step2Code.qmd`. If you have not completed that module, you may also just download this file from the `/output` directory of the GitHub repository. Then, replace the gene names in the cell below with the gene names that you would like to plot. The genes we have included in the example here are the genes that we included in some of our analyses.
 
 ```{r}
 # package dependencies
@@ -20,10 +20,10 @@ library(rlang)
 library(glue)
 
 # INSERT PATH TO MUTATION_FREQUENCY_COUNT.CSV HERE
-### you should have gotten this from running Step2Code.qmd ###
+### you should have gotten this from running Step2Code.qmd or from the /output directory ###
 Mutation_PTM_Frequency = read_csv("~Path to file/Mutation_Freuency_Count.csv")
 
-### REPLACE VALUES BELOW WITH UNIPROT IDS ###
+### REPLACE VALUES BELOW WITH GENE NAMES ###
 gene_names = c('KRAS', 'POLE', 'SF3B1', 'CTNNB1', 'SPECC1') 
 
 head(Mutation_PTM_Frequency)
@@ -113,7 +113,7 @@ The figures plot the predicted disorder, confidence of the prediction, and the f
 
 The bars are the mutation frequencies by amino acid position. The bars are colored red (for within a disordered region) or blue (for within an ordered region). The line displays the confidence of the disorder prediction at each amino acid position on the protein.
 
-You will not be able to see the graphs here, but they have been downloaded and you can open them in your Downloads folder to view them.
+You will not be able to see the graphs here, but they have been downloaded and they should be available for viewing either in your Downloads folder or your working directory.
 
 ```{r}
 for (gene_to_plot in gene_names) {
@@ -140,7 +140,7 @@ for (gene_to_plot in gene_names) {
                         name = "AIUPred Disorder Score")
   ) +
   labs(
-    title = glue("{selected_gene} Mutation Frequency by Position"),
+    title = glue("{gene_to_plot} Mutation Frequency by Position"),
     x = "Mutation Position"
   ) + 
   theme_bw()
