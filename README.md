@@ -24,6 +24,8 @@ Next, in R, we want to join these two dataframes so we can analyze the most freq
 
 Go to the **StepTwoCode/** directory. Inside is a file called **Step2Code.qmd**. This is a quarto document written in R. Open this document in R or Rstudio to follow along. This script uses the three downloaded files from the first step to join the dataframes and also plots the PTM mutational frequency data. Inside you will find a step by step process and code chunks to run one at a time. Follow this code to see how we joined the dataframes and plotted mutational frequencies to decide our best candidate proteins.
 
+The joined PTM disrupting mutation frequency output of this step is in the **output/** directory.
+
 ## Third: Filter PTM Disrupting data by IDR and PS
 We filtered the joined data, keeping only PTMs found within Intrinsically Disordered Regions (IDRs) and Phase Separation (PS) regions.
 
