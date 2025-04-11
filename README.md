@@ -29,7 +29,7 @@ The joined PTM disrupting mutation frequency output of this step is in the **out
 ## Third: Filter PTM Disrupting data by IDR and PS
 We filtered the joined data, keeping only PTMs found within Intrinsically Disordered Regions (IDRs) and Phase Separation (PS) regions.
 
-All programs for this step are in the StepThreeScripts/ directory.
+All programs for this step are in the StepThreeCode/ directory.
 
 Verified IDRs were downloaded from DisProt: https://disprot.org/download
 We downloaded the 2024_12 release, all datasets, all aspects, including ambiguous.
@@ -39,15 +39,16 @@ The IDR scripts also use the output of Step 2, which can be found as ***output/M
 
 **Two Options for predicting IDR:**  
 **Option 1:** IDRs can be predicted using RIDAO: https://ridao.app/  
-We created a file with UniProt IDs using get_ids.py. If using a different dataset with more proteins, split the file so no one file had more than 9,000 names.  
-To run get_ids.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". You may optionally include a name for the output file using the argument "-o ./uniprot_ids.txt", with the example shown being the default output.  
+We created a file with UniProt IDs using ***get_ids.py***. If using a different dataset with more proteins, split the file so no one file had more than 9,000 names.  
+To run get_ids.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". You may optionally include a name for the output file using the argument "-o ./uniprot_ids.txt", with the example shown being the default output. The output of get_ids.py can be found in ***output/uniprot_ids.txt***  
 We submitted these files to https://www.uniprot.org/id-mapping to create FASTA files with protein sequeces for each ID, mapping IDs from UniProtKB AC/ID to UniProtKB.
 These mapping settings do not necessarily work for all IDs, but will work for most.
 We mapped any failed IDs individually.
-Download FASTA file(s) by clicking "Download", select "Downlaod all", and choose the canonical FASTA format.  
+Download FASTA file(s) by clicking "Download", select "Downlaod all", and choose the canonical FASTA format.
+This file can be found at ***data/idmapping_sequences.fasta***  
 The FASTA file(s) created from https://www.uniprot.org/id-mapping were submitted to https://ridao.app/  
 RIDAO provides a file for each protein, which were consolidated into one directory.
-This directory is the data/protein_scores/ directory.
+This directory is the ***data/protein_scores/*** directory.
 Filtration can be done using these scores with the ***filter_idr_predicted.py*** program.
 To run filter_idr_predicted.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". Optional arguments allow you to specify output file name, predicted scores directory path, and DisProt file path. All examples show the default values:  
 To include output file name: "-o ./MutFreq_in_IDR_pred.csv".  
@@ -70,7 +71,8 @@ The IDs were mapped using https://www.uniprot.org/id-mapping as in the previous 
 Though we performed IDR and PS analysis separately, the PS analysis could be performed later using the mapped IDs from IDR.
 The mapped IDs could also be filtered to only include IDs found in the file MutFreq_in_IDR_pred.csv, in which case you would change the first argument to "-m ../output/MutFreq_in_IDR_pred.csv".  
 Once IDs are mapped to protein sequences, the FASTA file(s) are submitted to ParSe (https://stevewhitten.github.io/Parse_v2_FASTA/).
-ParSe output is downloaded by scrolling to the bottom of the results page and downloading the ***Predicted PS IDRs FASTA***.
+In this dataset, one ID will fail to parse: **Q8WXI7**. This protein sequence exceeds the 10,000 amino acid limit for ParSe. When searched on PhaSePred (http://predict.phasep.pro/), Q8WXI7 does not appear to have phase separation regions.  
+ParSe output is downloaded by scrolling to the bottom of the results page and downloading the "Predicted PS IDRs FASTA". The file can be found at ***data/PS_predictions.fasta***
 
 The IDR-filtered file can be filtered for PTMs also in PS using the program ***filter_IDR_by_PS.py***  
 To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separation.file -d ../output/MutFreq_in_IDR_pred.csv" and optional argument "-o ./MutFreq_in_IDR_and_PS.csv".  
