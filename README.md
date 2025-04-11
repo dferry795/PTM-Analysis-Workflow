@@ -39,7 +39,7 @@ The IDR scripts also use the output of Step 2, which can be found as ***output/M
 
 **Two Options for predicting IDR:**  
 **Option 1:** IDRs can be predicted using RIDAO: https://ridao.app/  
-We created a file with UniProt IDs using ***get_ids.py***. If using a different dataset with more proteins, split the file so no one file had more than 9,000 names.  
+We created a file with UniProt IDs using ***get_ids.py***. If using a different dataset with more proteins, split the file so no one file has more than 9,000 names.  
 To run get_ids.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". You may optionally include a name for the output file using the argument "-o ./uniprot_ids.txt", with the example shown being the default output. The output of get_ids.py can be found in ***output/uniprot_ids.txt***  
 We submitted these files to https://www.uniprot.org/id-mapping to create FASTA files with protein sequeces for each ID, mapping IDs from UniProtKB AC/ID to UniProtKB.
 These mapping settings do not necessarily work for all IDs, but will work for most.
