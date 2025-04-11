@@ -31,29 +31,34 @@ We filtered the joined data, keeping only PTMs found within Intrinsically Disord
 
 All programs for this step are in the StepThreeScripts/ directory.
 
-Verified IDRs were obtained from DisProt: https://disprot.org/download
-We downloaded the 2024_12 release, all datasets, all aspects, including ambiguous
-The data type was regions, and was downloaded as a tsv file
+Verified IDRs were downloaded from DisProt: https://disprot.org/download
+We downloaded the 2024_12 release, all datasets, all aspects, including ambiguous.
+The data type was regions, and was downloaded as a tsv file.
 This file is in the data/ directory and is called ***DisProt_release_2024_12.tsv***  
 The IDR scripts also use the output of Step 2, which can be found as ***output/Mutation_Frequency_Count.csv***
 
 **Two Options for predicting IDR:**  
 **Option 1:** IDRs can be predicted using RIDAO: https://ridao.app/  
-We created a file with UniProt IDs using get_ids.py then split the file so no one file had more than 9,000 names.
-To run get_ids.py, include the required argument "-m path/mutation_frequency.file" and optional argument "-o path/output.file".  
+We created a file with UniProt IDs using get_ids.py. If using a different dataset with more proteins, split the file so no one file had more than 9,000 names.  
+To run get_ids.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". You may optionally include a name for the output file using the argument "-o ./uniprot_ids.txt", with the example shown being the default output.  
 We submitted these files to https://www.uniprot.org/id-mapping to create FASTA files with protein sequeces for each ID, mapping IDs from UniProtKB AC/ID to UniProtKB.
 These mapping settings do not necessarily work for all IDs, but will work for most.
 We mapped any failed IDs individually.
-Download FASTA files by clicking "Download", select "Downlaod all", and choose FASTA format.  
-The FASTA files created from https://www.uniprot.org/id-mapping were submitted as separate batches to https://ridao.app/
+Download FASTA file(s) by clicking "Download", select "Downlaod all", and choose the canonical FASTA format.  
+The FASTA file(s) created from https://www.uniprot.org/id-mapping were submitted to https://ridao.app/  
 RIDAO provides a file for each protein, which were consolidated into one directory.
 This directory is the data/protein_scores/ directory.
 Filtration can be done using these scores with the ***filter_idr_predicted.py*** program.
-To run filter_idr_predicted.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -p path/predicted_scores/ -v path/DisProt_release_2024_12.tsv".  
+To run filter_idr_predicted.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv". Optional arguments allow you to specify output file name, predicted scores directory path, and DisProt file path. All examples show the default values:  
+To include output file name: "-o ./MutFreq_in_IDR_pred.csv".  
+To include the predicted scores directory path: "-p ../data/predicted_scores/".  
+To include the DisProt file path: "-v ../data/DisProt_release_2024_12.tsv".  
 The output of filter_idr_predicted.py can be found in ***output/MutFreq_in_IDR_pred.csv***
 
 **Option 2:** as a faster option, IDRs can be predicted using AIUPred (https://aiupred.elte.hu/) as an API integrated into the program ***filter_idr_api.py***  
-To run filter_idr_api.py, include the required argument "-m path/mutation_frequency.file" and optional arguments "-o path/output.file -v path/DisProt_release_2024_12.tsv".  
+To run filter_idr_api.py, include the required argument "-m ../output/Mutation_Frequency_Count.csv" or equivalent. Optional arguments allow you to specify output file name and DisProt file path.  
+To include output file name: "-o ./MutFreq_in_IDR_api.csv".  
+To include DisProt file path: "-v ../data/DisProt_release_2024_12.tsv".  
 The output of filter_idr_api.py can be found in ***output/MutFreq_in_IDR_api.csv***
 
 Both of these programs should run in 10-20 minutes.
@@ -61,14 +66,14 @@ The output of each program is nearly identical, with a few sites included only i
 
 **PS prediction:**  
 UniProt IDs were pulled using the program get_ids.py  
-The IDs were mapped using https://www.uniprot.org/id-mapping as in the previous step.  
+The IDs were mapped using https://www.uniprot.org/id-mapping as in the previous step.  As with before, some IDs may not map on the first try and may need to be run separately and with different settings.  
 Though we performed IDR and PS analysis separately, the PS analysis could be performed later using the mapped IDs from IDR.
-The mapped IDs could also be filtered to only include IDs found in the file MutFreq_in_IDR_pred.csv  
+The mapped IDs could also be filtered to only include IDs found in the file MutFreq_in_IDR_pred.csv, in which case you would change the first argument to "-m ../output/MutFreq_in_IDR_pred.csv".  
 Once IDs are mapped to protein sequences, the FASTA file(s) are submitted to ParSe (https://stevewhitten.github.io/Parse_v2_FASTA/).
 ParSe output is downloaded by scrolling to the bottom of the results page and downloading the ***Predicted PS IDRs FASTA***.
 
 The IDR-filtered file can be filtered for PTMs also in PS using the program ***filter_IDR_by_PS.py***  
-To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separation.file -d path/MutFreq_in_IDR.file" and optional argument "-o path/output.file".  
+To run filter_IDR_by_PS.py, include the required arguments "-p path/phase_separation.file -d ../output/MutFreq_in_IDR_pred.csv" and optional argument "-o ./MutFreq_in_IDR_and_PS.csv".  
 The output of filter_IDR_by_PS.py can be found in ***output/MutFreq_in_IDR_and_PS.csv***
 
 
