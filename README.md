@@ -68,7 +68,7 @@ The output of each program is nearly identical, with a few sites included only i
 **PS prediction:**  
 UniProt IDs were pulled using the program get_ids.py  
 The IDs were mapped using https://www.uniprot.org/id-mapping as in the previous step.  As with before, some IDs may not map on the first try and may need to be run separately and with different settings.  
-Though we performed IDR and PS analysis separately, the PS analysis could be performed later using the mapped IDs from IDR.
+Though we performed IDR and PS analysis separately, the PS analysis could be performed later using the mapped IDs from IDR (data/idmapping_sequences.fasta).
 The mapped IDs could also be filtered to only include IDs found in the file MutFreq_in_IDR_pred.csv, in which case you would change the first argument to "-m ../output/MutFreq_in_IDR_pred.csv".  
 Once IDs are mapped to protein sequences, the FASTA file(s) are submitted to ParSe (https://stevewhitten.github.io/Parse_v2_FASTA/).
 In this dataset, one ID will fail to parse: **Q8WXI7**. This protein sequence exceeds the 10,000 amino acid limit for ParSe. When searched on PhaSePred (http://predict.phasep.pro/), Q8WXI7 does not appear to have phase separation regions.  
