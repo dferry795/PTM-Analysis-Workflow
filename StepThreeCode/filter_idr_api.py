@@ -26,7 +26,7 @@ elif len(sys.argv) >= 3:
         i = sys.argv.index("-v")
         verifiedFile = sys.argv[i + 1]
     else:
-        verifiedFile = ""
+        verifiedFile = "../data/DisProt_release_2024_12.tsv"
 else:
     print("Required arguments:\n\t-m path/mutation_frequency.file\n\nOptional arguments:\n\t-o path/output.file\n\t"
           "-v path/verified_scores.file\n")
