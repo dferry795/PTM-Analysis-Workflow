@@ -46,16 +46,19 @@ elif len(sys.argv) >= 3:
         i = sys.argv.index("-p")
         mypath = sys.argv[i + 1]
     else:
-        mypath = "./data/protein_scores/"
+        mypath = "../data/protein_scores/"
     if "-v" in sys.argv:
         i = sys.argv.index("-v")
         verifiedFile = sys.argv[i + 1]
     else:
-        verifiedFile = "./data/DisProt_release_2024_12.tsv"
+        verifiedFile = "../data/DisProt_release_2024_12.tsv"
 else:
     print("Required arguments:\n\t-m path/mutation_frequency.file\n\nOptional arguments:\n\t-o path/output.file\n\t-p "
           "path/predicted_scores/folder/\n\t-v path/verified_scores.file\n")
     sys.exit(1)
+
+if not mypath.endswith("/"):
+    mypath = mypath + "/"
 
 proteinFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 notFound = {""}
