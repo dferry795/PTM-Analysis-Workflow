@@ -6,7 +6,7 @@ editor: visual
 
 ## Step 1: Load in Data & Packages
 
-In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with verified IDRs from DisProt. The first file is called `Mutation_Freuency_Count.csv` and is the output of running `Step2Code.qmd`. If you have not completed that module, you may also just download this file from the `/output` directory of the GitHub repository. The other file you will need is the file called `DisProt_release_2024_12.tsv` which can be found and downloaded in the /data folder of this repository. Finally, replace `KRAS` with the name of the gene you would like to plot.
+In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with verified IDRs from DisProt. The first file is called `Mutation_Frequency_Count.csv` and is the output of running `Step2Code.qmd`. If you have not completed that module, you may also just download this file from the `/output` directory of the GitHub repository. The other file you will need is the file called `DisProt_release_2024_12.tsv` which can be found and downloaded in the /data folder of this repository. Finally, replace `KRAS` with the name of the gene you would like to plot.
 
 ```{r}
 # package dependencies
@@ -16,10 +16,10 @@ library(glue)
 
 ### INSERT PATH TO MUTATION_FREQUENCY_COUNT.CSV HERE ###
 ### you should have gotten this data frame from running Step2Code.qmd  or from the /output directory ###
-Mutation_PTM_Frequency = read_csv("~Path to file/Mutation_Freuency_Count.csv")
+Mutation_PTM_Frequency = read_csv("../output/Mutation_Frequency_Count.csv")
 
 ### INSERT PATH TO DISPROT VERIFIED IDRS FILE ###
-disorder_df = read_tsv('~Path to file/DisProt_release_2024_12.tsv')
+disorder_df = read_tsv('../data/DisProt_release_2024_12.tsv')
 
 ### REPLACE WITH GENE NAME TO PLOT ###
 gene_name = 'KRAS'
