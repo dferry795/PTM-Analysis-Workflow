@@ -132,7 +132,7 @@ for (gene_to_plot in gene_names) {
            stat = "identity") + 
   scale_fill_manual(values = c("TRUE" = "blue", "FALSE" = "red"), name = "Within an IDR") +  
   geom_line(data = gene_df, aes(x = Position, y = AIUPred * max(filtered_data$affected_cases_percentage), 
-                color = "Prediction Confidence", group = 1), size = 0.25) +
+                color = "Prediction Confidence", group = 1), linewidth = 0.25) +
   scale_color_manual(values = c("Prediction Confidence" = "black"), name = "Disorder Prediction") +
   scale_y_continuous(
     name = "Frequency of Mutation",
@@ -184,8 +184,8 @@ ggplot(data = filtered_data) +
            stat = "identity") + 
   scale_fill_manual(values = c("TRUE" = "blue", "FALSE" = "red"), name = "Disordered Region") +  
   geom_line(data = gene_df, aes(x = Position, y = AIUPred * max(filtered_data$affected_cases_percentage), 
-                color = "Prediction Confidence", group = 1), size = 0.25) +
-  scale_color_manual(values = c("Prediction Confidence" = "black"), name = "Disorder Prediction") +
+                color = "Disorder Score", group = 1), linewidth = 0.25) +
+  scale_color_manual(values = c("Disorder Score" = "black"), name = "Disorder Prediction") +
   scale_y_continuous(
     name = "Frequency of Mutation",
     sec.axis = sec_axis(~ . / max(filtered_data$affected_cases_percentage), 
