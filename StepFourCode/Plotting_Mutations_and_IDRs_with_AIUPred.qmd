@@ -6,7 +6,7 @@ editor: visual
 
 ## Step 1: Load in Data & Packages
 
-In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with predicted IDRs from AIUPred. The first file is called `Mutation_Frequency_Count.csv` and is the output of running `Step2Code.qmd`. If you have not completed that module, you may also just download this file from the `/output` directory of the GitHub repository. Then, replace the gene names in the cell below with the gene names that you would like to plot. The genes we have included in the example here are the genes that we included in some of our analyses.
+In this module, we will be graphing the frequency of cancer-associated, PTM-disrupting mutations along with predicted IDRs from AIUPred. The first file is called `Mutation_Frequency_Count.tsv` and is the output of running `Step2Code.qmd`. If you have not completed that module, you may also just download this file from the `/output` directory of the GitHub repository. Then, replace the gene names in the cell below with the gene names that you would like to plot. The genes we have included in the example here are the genes that we included in some of our analyses.
 
 ```{r}
 # package dependencies
@@ -21,7 +21,7 @@ library(glue)
 
 # INSERT PATH TO MUTATION_FREQUENCY_COUNT.CSV HERE
 ### you should have gotten this from running Step2Code.qmd or from the /output directory ###
-Mutation_PTM_Frequency = read_csv("../output/Mutation_Frequency_Count.csv")
+Mutation_PTM_Frequency = read_tsv("../output/Mutation_Frequency_Count.tsv")
 
 ### REPLACE VALUES BELOW WITH GENE NAMES ###
 gene_names = c('KRAS', 'POLE', 'SF3B1', 'CTNNB1', 'SPECC1') 
