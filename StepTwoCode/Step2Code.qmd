@@ -98,7 +98,7 @@ view(Joined_Data)
 If you would like to write out your data set to your computer, run the following code and edit the path to where you would like to write it out
 
 ```{r}
-write.csv(Joined_Data, "data/Mutation_Frequency_Count.csv") # EDIT HERE: define the path you want to write out the data for.
+write.table(Joined_Data, "data/Mutation_Frequency_Count.tsv", sep = "\t", row.names = FALSE, quote = FALSE) # EDIT HERE: define the path you want to write out the data for.
 ```
 
 The columns in this data frame show you what change was made to the DNA, what position the PTM is on, and what exact_position the mutation is on. Additionally, there is the percentage of frequency and where the data came from in the PTMD database.
