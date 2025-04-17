@@ -23,7 +23,7 @@ if len(sys.argv) >= 5:
         i = sys.argv.index("-o")
         output = sys.argv[i+1]
     else:
-        output = "./MutFreq_in_IDR_and_PS.csv"
+        output = "./MutFreq_in_IDR_and_PS.tsv"
 else:
     print("Required arguments:\n\t-p path/phase_separation.file\n\t-d path/MutFreq_in_IDR.file\n\nOptional arguments:"
           "\n\t-o path/output.file\n\t")
@@ -49,9 +49,9 @@ with open(disorderFile, "r", encoding="utf-8") as data, open(output, "w", encodi
             out.write(lin)
             first = False
             continue
-        col = line.split(",")
-        if col[2] in names:
-            for bounds in names[col[2]]:
-                if int(bounds[0]) <= int(col[3]) <= int(bounds[1]):
+        col = line.split("\t")
+        if col[1] in names:
+            for bounds in names[col[1]]:
+                if int(bounds[0]) <= int(col[2]) <= int(bounds[1]):
                     out.write(f"\n{lin}")
                     break
