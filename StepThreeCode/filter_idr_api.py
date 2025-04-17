@@ -21,7 +21,7 @@ elif len(sys.argv) >= 3:
         i = sys.argv.index("-o")
         outFile = sys.argv[i+1]
     else:
-        outFile = "./MutFreq_in_IDR_api.csv"
+        outFile = "./MutFreq_in_IDR.tsv"
     if "-v" in sys.argv:
         i = sys.argv.index("-v")
         verifiedFile = sys.argv[i + 1]
@@ -55,22 +55,21 @@ with open(mutationFile, "r", encoding="utf-8") as data, open(outFile, "w", encod
             first = False
             out.write(lin)
             continue
-        col = lin.split(",")
-        f = f"{col[2]}.dat"
-        if col[2] in disprot:
-            for p in disprot[col[2]]:
-                if p[0] <= int(col[3]) <= p[1]:
+        col = lin.split("\t")
+        if col[1] in disprot:
+            for p in disprot[col[1]]:
+                if p[0] <= int(col[2]) <= p[1]:
                     out.write(f"\n{lin}")
                     break
-        elif col[2] in found:
-            for p in found[col[2]]:
-                if p[0] <= int(col[3]) <= p[1]:
+        elif col[1] in found:
+            for p in found[col[1]]:
+                if p[0] <= int(col[2]) <= p[1]:
                     out.write(f"\n{lin}")
         else:
-            par = {"accession": col[2], "smoothing": "default", "analysis_type": "redox"}
+            par = {"accession": col[1], "smoothing": "default", "analysis_type": "redox"}
             results = json.loads(requests.get(url, params=par).text)
-            found[col[2]] = results["regions"]
+            found[col[1]] = results["regions"]
             for bounds in results["regions"]:
-                if bounds[0] <= int(col[3]) <= bounds[1]:
+                if bounds[0] <= int(col[2]) <= bounds[1]:
                     out.write(f"\n{lin}")
                     break
