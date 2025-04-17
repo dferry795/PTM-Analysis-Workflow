@@ -1,0 +1,127 @@
+dna_change	UniProt	PTM_Position	MutationSite	exact_position	gene	num_cohort_ssm_affected_cases	num_cohort_ssm_cases	affected_cases_percentage	Source	Disease	Is_experimental_verification
+chr1:g.26773456C>T	O14497	1276	R1276*	1276	ARID1A	13	16508	0.08	Biomuta	Colorectal cancer	0
+chr1:g.156138602G>A	P02545	612	A605T	605	LMNA	1	16508	0.01	ActiveDriverDB	Kidney renal clear cell carcinoma	0
+chr1:g.156138712G>T	P02545	643	L641R	641	LMNA	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Cardiomyopathy	0
+chr11:g.3773702A>C	P52948	184	V178G	178	NUP98	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chrX:g.41341504T>A	O00571	53	S58T	58	DDX3X	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chrX:g.41342505C>T	O00571	92	R99H	99	DDX3X	1	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chrX:g.41342512G>A	O00571	102	R101W	101	DDX3X	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Stomach adenocarcinoma	0
+chrX:g.41342533G>A	O00571	102	G108D	108	DDX3X	1	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chrX:g.41342522C>T	O00571	104	Y104*	104	DDX3X	2	16508	0.01	Biomuta	Urinary bladder cancer	0
+chrX:g.41342572G>A	O00571	114	R121L	121	DDX3X	1	16508	0.01	ActiveDriverDB	Mental retardation	0
+chrX:g.41342604G>A	O00571	125	D132N	132	DDX3X	1	16508	0.01	ActiveDriverDB	Lung squamous cell carcinoma	0
+chrX:g.41342587G>C	O00571	131	R126P	126	DDX3X	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chrX:g.41342602C>G	O00571	131	S131*	131	DDX3X	1	16508	0.01	Biomuta	Blastoma	0
+chr1:g.26732685C>T	O14497	604	Q605E	605	ARID1A	2	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26732676G>A	O14497	604	E602K	602	ARID1A	1	16508	0.01	ActiveDriverDB	Cervical squamous cell carcinoma and endocervical adenocarcinoma	0
+chr1:g.26732713C>G	O14497	613	S614L	614	ARID1A	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26732731C>A	O14497	613	S620Y	620	ARID1A	1	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr1:g.26732782C>G	O14497	631	S637C	637	ARID1A	2	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26761036G>T	O14497	696	G701C	701	ARID1A	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26761010T>A	O14497	696	I692N	692	ARID1A	1	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr1:g.26761079C>T	O14497	711	S715L	715	ARID1A	2	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26761441delCCATGAACC	O14497	745	S740F	740	ARID1A	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26761456G>A	O14497	745	S745N	745	ARID1A	1	16508	0.01	ActiveDriverDB	Kidney renal papillary cell carcinoma	0
+chr1:g.26761445G>A	O14497	745	M741I	741	ARID1A	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26762208G>A	O14497	764	A770T	770	ARID1A	1	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chr1:g.26762218C>T	O14497	769	P773L	773	ARID1A	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Stomach adenocarcinoma	0
+chr1:g.26762221G>A	O14497	769	R774H	774	ARID1A	2	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr1:g.26772823C>T	O14497	1184	S1184L	1184	ARID1A	1	16508	0.01	Biomuta	Cervical cancer	0
+chr1:g.26772879A>T	O14497	1204	N1203Y	1203	ARID1A	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26772949A>G	O14497	1225	Y1226C	1226	ARID1A	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26772947C>A	O14497	1225	S1225C	1225	ARID1A	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26772934T>G	O14497	1225	M1221R	1221	ARID1A	1	16508	0.01	ActiveDriverDB	Sarcoma	0
+chr1:g.26772987G>A	O14497	1233	A1239T	1239	ARID1A	2	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr1:g.26773867A>T	O14497	1350	Q1357L	1357	ARID1A	2	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26774761C>T	O14497	1506	Q1512H	1512	ARID1A	2	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr1:g.26774750A>G	O14497	1506	Y1508C	1508	ARID1A	1	16508	0.01	ActiveDriverDB	Kidney renal papillary cell carcinoma	0
+chr1:g.26774726G>T	O14497	1506	G1500V	1500	ARID1A	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.26774879G>A	O14497	1544	R1551H	1551	ARID1A	2	16508	0.01	ActiveDriverDB	Prostate adenocarcinoma	0
+chr2:g.197409911C>T	O75533	248	D255N	255	SF3B1	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr2:g.197409901G>A	O75533	251	P258L	258	SF3B1	1	16508	0.01	ActiveDriverDB	Colon adenocarcinoma	0
+chr2:g.197409874G>T	O75533	261	T267N	267	SF3B1	1	16508	0.01	ActiveDriverDB	Kidney renal papillary cell carcinoma	0
+chr2:g.197409853G>A	O75533	267	P274L	274	SF3B1	1	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr2:g.197409845C>A	O75533	273	A277S	277	SF3B1	1	16508	0.01	ActiveDriverDB	Hepatocellular carcinoma	0
+chr2:g.197409817G>C	O75533	285	S286C	286	SF3B1	1	16508	0.01	ActiveDriverDB	Head and neck squamous cell carcinoma	0
+chr2:g.197409799C>T	O75533	285	R292K	292	SF3B1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr2:g.197408564T>G	O75533	303	S308R	308	SF3B1	1	16508	0.01	ActiveDriverDB	Colon adenocarcinoma	0
+chr2:g.197408524T>A	O75533	316	D321V	321	SF3B1	1	16508	0.01	ActiveDriverDB	Hepatocellular carcinoma	0
+chr2:g.197408434G>A	O75533	344	P351L	351	SF3B1	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Skin cutaneous melanoma	0
+chr6:g.149683711C>T	O95835	462	V460M	460	LATS1	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr6:g.149683701T>C	O95835	462	N463S	463	LATS1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr6:g.149683698G>T	O95835	462	S464F	464	LATS1	2	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr6:g.149683677T>C	O95835	464	N471S	471	LATS1	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Lung adenocarcinoma	0
+chr6:g.149683612G>A	O95835	490	P493S	493	LATS1	1	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr6:g.149683642C>T	O95835	490	A483T	483	LATS1	1	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chr22:g.28734669C>G	O96017	12	C18Y	18	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734676T>G	O96017	12	S16N	16	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734687G>A	O96017	12	S12T	12	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734649C>G	O96017	19	V25A	25	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734653G>T	O96017	19	G23D	23	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr22:g.28734632G>T	O96017	24	G30S	30	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734597G>C	O96017	35	S42C	42	CHEK2	1	16508	0.01	ActiveDriverDB	Cervical squamous cell carcinoma and endocervical adenocarcinoma	0
+chr22:g.28734588G>A	O96017	39	T45M	45	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734593delGG	O96017	39	T43A	43	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734569C>G	O96017	44	Q51R	51	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734564G>A	O96017	50	S53F	53	CHEK2	1	16508	0.01	ActiveDriverDB	Cervical squamous cell carcinoma and endocervical adenocarcinoma	0
+chr22:g.28734554G>C	O96017	50	S56G	56	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr22:g.28734537G>T	O96017	55	S62F	62	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr22:g.28734530C>T	O96017	59	E64K	64	CHEK2	1	16508	0.01	PhosphoSitePlus	Prostate cancer	0
+chr22:g.28734517G>A	O96017	62	Q69L	69	CHEK2	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial cancer of breast	0
+chr22:g.28734513T>C	O96017	65	E70G	70	CHEK2	1	16508	0.01	ActiveDriverDB	Cholangiocarcinoma	0
+chr17:g.50186717C>T	P02452	1247	R1246Q	1246	COL1A1	1	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr17:g.50186489G>A	P02452	1271	P1278L	1278	COL1A1	1	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr2:g.189009121T>C	P02461	1237	V1241A	1241	COL3A1	1	16508	0.01	ActiveDriverDB	Hepatocellular carcinoma	0
+chr2:g.189009090C>A	P02461	1237	T1231N	1231	COL3A1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr1:g.156138651C>T	P02545	615	T621M	621	LMNA	1	16508	0.01	ActiveDriverDB	Charcot-Marie-Tooth disease	0
+chr1:g.156138660G>A	P02545	618	R624C	624	LMNA	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Charcot-Marie-Tooth disease	0
+chr1:g.156138686delG	P02545	628	G634D	634	LMNA	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Cardiomyopathy	0
+chr7:g.26196570C>G	P22626	198	R200S	200	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr7:g.26196445C>A	P22626	212	G217V	217	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr7:g.26195892G>A	P22626	231	R238S	238	HNRNPA2B1	2	16508	0.01	ActiveDriverDB	Kidney renal clear cell carcinoma	0
+chr7:g.26195906C>G	P22626	231	G233A	233	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr7:g.26195889C>T	P22626	236	G239R	239	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Kidney renal papillary cell carcinoma	0
+chr7:g.26195873T>C	P22626	244	Y244C	244	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Uterine carcinosarcoma	0
+chr7:g.26193671C>T	P22626	259	G261S	261	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Head and neck squamous cell carcinoma	0
+chr7:g.26193689T>A	P22626	259	N255Y	255	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Lung adenocarcinoma	0
+chr7:g.26193659C>T	P22626	259	G265R	265	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Skin cutaneous melanoma	0
+chr7:g.26193677T>A	P22626	259	S259C	259	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chr7:g.26193583T>C	P22626	290	Y290C	290	HNRNPA2B1	2	16508	0.01	ActiveDriverDB	Breast invasive carcinoma	0
+chr7:g.26193347C>G	P22626	297	D302V	302	HNRNPA2B1	1	16508	0.01	PhosphoSitePlus	Inclusion body myopathy with early-onset Paget disease with or without frontotemporal dementia	0
+chr7:g.26193259T>C	P22626	324	Y331C	331	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Head and neck squamous cell carcinoma	0
+chr7:g.26193269C>A	P22626	324	G328W	328	HNRNPA2B1	1	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr7:g.26192571T>C	P22626	331	Y336C	336	HNRNPA2B1	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Lung adenocarcinoma	0
+chr7:g.26193257C>A	P22626	331	G332C	332	HNRNPA2B1	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Lung adenocarcinoma	0
+chr7:g.26192554C>T	P22626	336	G342E	342	HNRNPA2B1	2	16508	0.01	ActiveDriverDB;ActiveDriverDB	Skin cutaneous melanoma	0
+chr5:g.112843961C>T	P25054	2782	S2789G	2789	APC	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr5:g.112843975G>T	P25054	2789	S2794G	2794	APC	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial adenomatous polyposis	0
+chr5:g.112843979A>G	P25054	2789	A2795G	2795	APC	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr5:g.112843995C>T	P25054	2794	R2801W	2801	APC	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Hereditary cancer-predisposing syndrome	0
+chr5:g.112844005A>C	P25054	2799	Q2804E	2804	APC	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Familial adenomatous polyposis	0
+chr16:g.31182610G>C	P35637	42	D46H	46	FUS	2	16508	0.01	ActiveDriverDB	Esophageal carcinoma	0
+chr16:g.31182623A>G	P35637	54	Y50C	50	FUS	1	16508	0.01	ActiveDriverDB	Uveal melanoma	0
+chr16:g.31183990G>A	P35637	112	S108N	108	FUS	1	16508	0.01	ActiveDriverDB	Uterine corpus endometrial carcinoma	0
+chr16:g.31184280A>G	P35637	131	Y136C	136	FUS	1	16508	0.01	ActiveDriverDB	Brain lower grade glioma	0
+chr16:g.31185055G>A	P35637	221	G214R	214	FUS	1	16508	0.01	ActiveDriverDB	Kidney renal clear cell carcinoma	0
+chr16:g.31186803G>A	P35637	257	G256R	256	FUS	1	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chr16:g.31188357G>A	P35637	277	E278K	278	FUS	2	16508	0.01	ActiveDriverDB	Stomach adenocarcinoma	0
+chr16:g.31189138delACA	P35637	286	T286I	286	FUS	1	16508	0.01	Biomuta	Melanoma	0
+chr16:g.31190285C>T	P35637	397	R394L	394	FUS	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Amyotrophic lateral sclerosis	0
+chr16:g.31190981A>G	P35637	468	R472C	472	FUS	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Amyotrophic lateral sclerosis	0
+chr16:g.31190984G>A	P35637	468	R473H	473	FUS	1	16508	0.01	ActiveDriverDB	Glioblastoma multiforme	0
+chr22:g.41117373A>G	Q09472	89	N94S	94	EP300	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr22:g.41117400T>G	Q09472	106	V103I	103	EP300	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Rubinstein-Taybi syndrome	0
+chr22:g.41149879C>T	Q09472	831	S833L	833	EP300	1	16508	0.01	ActiveDriverDB	Breast invasive carcinoma	0
+chr22:g.41149893C>T	Q09472	831	R838H	838	EP300	2	16508	0.01	ActiveDriverDB	Rubinstein-Taybi syndrome	0
+chrX:g.41342635C>T	O00571	138	P142L	142	DDX3X	1	16508	0.01	ActiveDriverDB	Breast adenocarcinoma	0
+chr17:g.50186358T>C	P02452	1316	R1322K	1322	COL1A1	1	16508	0.01	ActiveDriverDB;ActiveDriverDB	Osteogenesis imperfecta	0
+chr16:g.31191398G>T	P35637	510	G515C	515	FUS	1	16508	0.01	PhosphoSitePlus;PhosphoSitePlus;PhosphoSitePlus;PhosphoSitePlus	Amyotrophic lateral sclerosis	0
+chrX:g.41342538C>T	O00571	110	R110C	110	DDX3X	2	16508	0.01	Biomuta	Stomach cancer	0
+chr1:g.26773361C>A	O14497	1237	P1244H	1244	ARID1A	1	16508	0.01	ActiveDriverDB	Kidney renal clear cell carcinoma	0
+chr1:g.26773489delAG	O14497	1287	R1287T	1287	ARID1A	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr16:g.31185032G>C	P35637	213	G206S	206	FUS	1	16508	0.01	ActiveDriverDB;ActiveDriverDB;ActiveDriverDB	Amyotrophic lateral sclerosis	0
+chr16:g.31185113A>G	P35637	234	N233S	233	FUS	1	16508	0.01	ActiveDriverDB	Glioblastoma multiforme	0
+chr22:g.41117800G>C	Q09472	237	L236F	236	EP300	1	16508	0.01	ActiveDriverDB	Cervical squamous cell carcinoma and endocervical adenocarcinoma	0
+chr22:g.41117812G>T	Q09472	237	Q240H	240	EP300	1	16508	0.01	ActiveDriverDB	Head and neck squamous cell carcinoma	0
+chr22:g.41146798C>G	Q09472	705	R705G	705	EP300	1	16508	0.01	ActiveDriverDB	Bladder urothelial carcinoma	0
+chr16:g.31190127G>A	P35637	386	R386Q	386	FUS	1	16508	0.01	Biomuta	Breast cancer	0
