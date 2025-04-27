@@ -1,4 +1,4 @@
-# PTM-Analysis-Workflow
+# Identifying Candidate PTM Sites for Cancer Drug Discovery
 Created by Darian Ferry, Eric Upton-Rowley, Tessa (Bass) Tolson, and Hailey (Johnson) Zimmerman, April 2025.
 
 Mentored by Dr. Josh Anderson
